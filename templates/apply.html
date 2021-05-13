@@ -1,0 +1,47 @@
+
+{% extends "header.html"%}
+{%block content%} 
+{% load static %}  
+      <!DOCTYPE html>
+		<html>
+		<head>
+			<title>Apply for loans</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+			{% include 'material/includes/material_css.html' %}
+			{% include 'material/includes/material_js.html' %}
+		</head>
+		<body>
+		<div id="wrapper">
+				
+				<div class="container-fluid">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="panel">
+						<div class="panel-header">
+							<h3>{{title}} Page</h3>
+						</div>
+						<div class="panel-body">
+						{% load material_form %}
+						<form method="POST">
+							{% csrf_token %}
+							{% form form=form %}{% endform %}
+							<button type="submit" name="_submit" class="btn">Apply Loan</button>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		<script src="{% static 'js/custom.js' %}"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.js' %}"></script>
+		</body>
+		</html>  
+{%endblock%}

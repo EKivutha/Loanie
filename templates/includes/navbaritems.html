@@ -1,0 +1,38 @@
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/">HOME</a></li>
+                {% if user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"> 
+                            <i class="ion-ios-bell-outline "></i> 
+                            
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-scale lg-dropdown notifications">
+                            <li> <p>You have 20 new notifications <a href="#"> Mark all Read</a></p></li>
+                            <li class="unread-notifications">
+                                <a href="#">
+                                    <i class="ion-ios-email-outline pull-right"></i>
+                                    <span class="line">You have 100 Messages</span>
+                                    <span class="small-line">3 Minutes ago</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ion-social-twitter-outline pull-right"></i>
+                                    <span class="line">You have 70 new followers</span>
+                                    <span class="small-line">8 Minutes ago</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ion-ios-download-outline pull-right"></i>
+                                    <span class="line">Download Complete</span>
+                                    <span class="small-line">6 Minutes ago</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/account">{{user.username|title}}</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout">LOGOUT</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">LOGIN</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">REGISTER</a></li>
+                {% endif %}

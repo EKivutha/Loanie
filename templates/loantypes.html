@@ -1,0 +1,57 @@
+
+{% extends "header.html"%}
+{%block content%} 
+{% load static %}  
+      <!DOCTYPE html>
+		<html>
+		<head>
+			<title>Loan Types</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+			{% include 'material/includes/material_css.html' %}
+			{% include 'material/includes/material_js.html' %}
+		</head>
+		<body>
+            
+            <section class="page-section bg-light" id="portfolio">
+                <div class="container">
+                    <div class="text-center">
+                        <h2 class="section-heading text-uppercase">Loans Available</h2>
+                        <h3 class="section-subheading text-muted"></h3>
+                    </div>
+                    
+                    <div class="row">
+                        {% for ltype in loantypes %}
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <div class="portfolio-item">
+                                <a class="portfolio-link"  href="{% url 'main:applyloan' %}">
+                                    <div class="portfolio-hover">
+                                        <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    </div>
+                                     <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading">{{ltype.name}}</div>
+                                    <div class="portfolio-caption-subheading text-muted">{{ltype.description | safe}}</div>
+                                    <p>Rate:{{ltype.rate}}</p>
+                                    <p>Gurantor:{{ltype.need_collateral}}</p>
+
+                                </div>
+                                </a>
+                               
+                            </div>
+                        </div>
+                        {% endfor %}
+                       
+                    </div>
+                </div>
+            </section>
+            
+            <script src="{% static 'js/custom.js' %}"></script>
+            <script src="{% static 'js/jquery.min.js' %}"></script>
+            <script src="{% static 'js/bootstrap.js' %}"></script>
+		</body>
+		</html>  
+{%endblock%}
