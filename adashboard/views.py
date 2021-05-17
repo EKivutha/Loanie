@@ -4,6 +4,7 @@ from django.template import loader
 from django.http import HttpResponse
 from django import template
 from client.models import Loan
+from accounts.models import person
 
 
 @login_required(login_url="/login/")
@@ -11,6 +12,9 @@ def index(request):
     
     context = {}
     context['segment'] = 'index'
+    def conto(self):
+        album = person.objects.all().count()
+        return album
 
     html_template = loader.get_template( 'dashboard.html' )
     return HttpResponse(html_template.render(context, request))
@@ -43,3 +47,10 @@ def transactions(request):
                 "Loan_list":queryset
         }
         return render(request, "transactions.html",context = {"Loan_list":Loan.objects.all})
+
+def users(request):
+        queryset = person.objects.all()
+        context = {
+                "person_list":queryset
+        }
+        return render(request, "users.html",context = {"person_list":person.objects.all})        

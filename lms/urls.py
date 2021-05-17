@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^auth/', include('authentication.urls')),
     url(r'', include(frontend_urls)),
              # Django admin route
-    url(r'^authentication/',  include("authentication.urls")), # Auth routes - login / register
+    url(r'',  include("authentication.urls")), # Auth routes - login / register
     url(r'^dashboard/',  include("adashboard.urls"))
     
 ]
