@@ -133,3 +133,6 @@ def borrowers(request):
 #@login_required()
 def user_dashboard(request):
     return render(request, 'dashboard.html')
+
+def settings(request):
+    return render(request, 'settings1.html')
