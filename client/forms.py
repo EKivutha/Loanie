@@ -22,7 +22,7 @@ class PostForm(forms.ModelForm):
     	class Meta:
             model = Loan
             fields = [
-                "loan_title",
+                
                 "reason",
                 "gurrantor_1",
                 "gurrantor_1_ID",
