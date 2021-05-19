@@ -5,7 +5,7 @@ from django.db import models
 class Loan(models.Model):
 	title = models.CharField(max_length=120)
 	reason = models.TextField()
-	amount = models.TextField()
+	amount = models.TextField(default='')
 	gurrantor_1 = models.TextField()
 	gurrantor_1_ID = models.TextField()
 	gurrantor_2 = models.TextField()

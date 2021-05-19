@@ -1,23 +1,19 @@
+from django_daraja.mpesa.core import MpesaClient
 
-from mpesa.api.<API> import <API Class>
+phone_number = '07xxxxxxxx'
+amount = 1
+transaction_desc = 'Description'
+occassion = 'Occassion'
+callback_url = request.build_absolute_uri(reverse('mpesa_salary_payment_callback'))
+response = self.cl.business_payment(phone_number, amount, transaction_desc, self.callback_url, occassion)
 
-class api.b2c.B2C(env='sandbox', 
-                app_key=None, 
-                app_secret=None, 
-                sandbox_url='https://sandbox.safaricom.co.ke', 
-                live_url='https://safaricom.co.ke')
-class api.balance.Balance(env='sandbox', 
-                            app_key=None, 
-                            app_secret=None, 
-                            sandbox_url='https://sandbox.safaricom.co.ke', 
-                            live_url='https://safaricom.co.ke')
-class api.c2b.C2B(env='sandbox',
-                 app_key=None, 
-                 app_secret=None, 
-                 sandbox_url=None, 
-                 live_url=None)
-class api.auth.MpesaBase(env='sandbox', 
-                            app_key=None, 
-                            app_secret=None, 
-                            sandbox_url='https://sandbox.safaricom.co.ke', 
-                            live_url='https://safaricom.co.ke')
+
+def index(request):
+    cl = MpesaClient()
+    phone_number = '0700111222'
+    amount = 1
+    account_reference = 'reference'
+    transaction_desc = 'Description'
+    callback_url = request.build_absolute_uri(reverse('mpesa_stk_push_callback'))
+    response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
+    return HttpResponse(response)
